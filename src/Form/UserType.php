@@ -17,7 +17,7 @@ class UserType extends AbstractType
             ->add('name')
             ->add('mail')
             ->add('timestamp')
-            ->add('users', EntityType::class, [
+            ->add('projects', EntityType::class, [
                 // looks for choices from this entity
                 'class' => Project::class,
 
