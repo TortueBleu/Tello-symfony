@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
+use App\Repository\AreaRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
+ * @ORM\Entity(repositoryClass=AreaRepository::class)
  */
-class User
+class Area
 {
     /**
      * @ORM\Id
@@ -26,9 +25,10 @@ class User
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="areas")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $mail;
+    private $project;
 
     /**
      * @ORM\Column(type="date")
@@ -36,13 +36,13 @@ class User
     private $timestamp;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="users")
+     * @ORM\OneToMany(targetEntity=Card::class, mappedBy="area", orphanRemoval=true)
      */
-    private $projects;
+    private $cards;
 
     public function __construct()
     {
-        $this->projects = new ArrayCollection();
+        $this->cards = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -62,14 +62,14 @@ class User
         return $this;
     }
 
-    public function getMail(): ?string
+    public function getProject(): ?Project
     {
-        return $this->mail;
+        return $this->project;
     }
 
-    public function setMail(string $mail): self
+    public function setProject(?Project $project): self
     {
-        $this->mail = $mail;
+        $this->project = $project;
 
         return $this;
     }
@@ -87,27 +87,30 @@ class User
     }
 
     /**
-     * @return Collection|Project[]
+     * @return Collection|Card[]
      */
-    public function getProjects(): Collection
+    public function getCards(): Collection
     {
-        return $this->projects;
+        return $this->cards;
     }
 
-    public function addProject(Project $project): self
+    public function addCard(Card $card): self
     {
-        if (!$this->projects->contains($project)) {
-            $this->projects[] = $project;
-            $project->addUser($this);
+        if (!$this->cards->contains($card)) {
+            $this->cards[] = $card;
+            $card->setArea($this);
         }
 
         return $this;
     }
 
-    public function removeProject(Project $project): self
+    public function removeCard(Card $card): self
     {
-        if ($this->projects->removeElement($project)) {
-            $project->removeUser($this);
+        if ($this->cards->removeElement($card)) {
+            // set the owning side to null (unless already changed)
+            if ($card->getArea() === $this) {
+                $card->setArea(null);
+            }
         }
 
         return $this;
