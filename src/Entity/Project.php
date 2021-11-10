@@ -25,11 +25,6 @@ class Project
     private $name;
 
     /**
-     * @ORM\Column(type="array")
-     */
-    private $listArray = [];
-
-    /**
      * @ORM\ManyToMany(targetEntity=User::class, inversedBy="projects")
      */
     private $users;
@@ -38,6 +33,11 @@ class Project
      * @ORM\OneToMany(targetEntity=Area::class, mappedBy="project", orphanRemoval=true)
      */
     private $areas;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $timestamp;
 
     public function __construct()
     {
@@ -58,18 +58,6 @@ class Project
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getListArray(): ?array
-    {
-        return $this->listArray;
-    }
-
-    public function setListArray(array $listArray): self
-    {
-        $this->listArray = $listArray;
 
         return $this;
     }
@@ -124,6 +112,18 @@ class Project
                 $area->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTimestamp(): ?\DateTimeInterface
+    {
+        return $this->timestamp;
+    }
+
+    public function setTimestamp(\DateTimeInterface $timestamp): self
+    {
+        $this->timestamp = $timestamp;
 
         return $this;
     }
