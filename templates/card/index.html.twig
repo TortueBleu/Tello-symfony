@@ -3,10 +3,43 @@
 {% block title %}Card index{% endblock %}
 
 {% block body %}
-    <h1>Card index</h1>
 
-    <table class="table">
-        <thead>
+
+
+
+
+
+
+
+
+    <div class="ternary-system">
+        <div class="sun primary"></div>
+        <div class="sun secondary"></div>
+        <div class="sun ternary"></div>
+    </div>
+    <div class="sand">
+        <div class="pendulums">
+            <div class="pendulum">
+                <div class="bar"></div>
+                <div class="motion">
+                    <div class="string"></div>
+                    <div class="weight"></div>
+                </div>
+            </div>
+            <div class="pendulum shadow">
+                <div class="bar"></div>
+                <div class="motion">
+                    <div class="string"></div>
+                    <div class="weight"></div>
+                </div>
+            </div>
+        </div></div>
+    <div class="pyramid"></div>
+    <div class="text">
+        <h1 class="title"> <strong>Card index</strong><em></em></h1>
+        <p>
+        <table class="table">
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -14,275 +47,365 @@
                 <th>Timestamp</th>
                 <th>actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for card in cards %}
-            <tr>
-                <td>{{ card.id }}</td>
-                <td>{{ card.name }}</td>
-                <td>{{ card.content }}</td>
-                <td>{{ card.timestamp ? card.timestamp|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('card_show', {'id': card.id}) }}">show</a>
-                    <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for card in cards %}
+                <tr>
+                    <td>{{ card.id }}</td>
+                    <td>{{ card.name }}</td>
+                    <td>{{ card.content }}</td>
+                    <td>{{ card.timestamp ? card.timestamp|date('Y-m-d') : '' }}</td>
+                    <td>
+                        <a href="{{ path('card_show', {'id': card.id}) }}">show</a>
+                        <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </p>
 
 
-
-    <div class="container">
-        <div class="card">
-            <div class="box">
-                <div class="content">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Content</th>
-                            <th>Timestamp</th>
-                            <th>actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for card in cards %}
-                            <tr>
-                                <td>{{ card.id }}</td>
-                                <td>{{ card.name }}</td>
-                                <td>{{ card.content }}</td>
-                                <td>{{ card.timestamp ? card.timestamp|date('Y-m-d') : '' }}</td>
-                                <td>
-                                    <a href="{{ path('card_show', {'id': card.id}) }}">show</a>
-                                    <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="5">no records found</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="box">
-                <div class="content">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Content</th>
-                            <th>Timestamp</th>
-                            <th>actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for card in cards %}
-                            <tr>
-                                <td>{{ card.id }}</td>
-                                <td>{{ card.name }}</td>
-                                <td>{{ card.content }}</td>
-                                <td>{{ card.timestamp ? card.timestamp|date('Y-m-d') : '' }}</td>
-                                <td>
-                                    <a href="{{ path('card_show', {'id': card.id}) }}">show</a>
-                                    <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="5">no records found</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="box">
-                <div class="content">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Content</th>
-                            <th>Timestamp</th>
-                            <th>actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for card in cards %}
-                            <tr>
-                                <td>{{ card.id }}</td>
-                                <td>{{ card.name }}</td>
-                                <td>{{ card.content }}</td>
-                                <td>{{ card.timestamp ? card.timestamp|date('Y-m-d') : '' }}</td>
-                                <td>
-                                    <a href="{{ path('card_show', {'id': card.id}) }}">show</a>
-                                    <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="5">no records found</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card">
-            <div class="box">
-                <div class="content">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Content</th>
-                            <th>Timestamp</th>
-                            <th>actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for card in cards %}
-                            <tr>
-                                <td>{{ card.id }}</td>
-                                <td>{{ card.name }}</td>
-                                <td>{{ card.content }}</td>
-                                <td>{{ card.timestamp ? card.timestamp|date('Y-m-d') : '' }}</td>
-                                <td>
-                                    <a href="{{ path('card_show', {'id': card.id}) }}">show</a>
-                                    <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="5">no records found</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="lesbutton">
+            <button class="btn draw-border"><a href="{{ path('user_new') }}">Create new</a></br></button>
+            <button class="btn draw-border"><a href="/trello"> Home </a></br></button>
         </div>
 
 
     </div>
 
-    <a href="{{ path('card_new') }}">Create new</a>   </br>
-    <a href="/trello"> Home </a>
+
+
+
+
+
+
+
+
 
     <style>
 
 
 
-        body .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 40px 0;
+        /* button */
 
+        .lesbutton{
+
+            margin-top: 5% !important;
+            margin-left: -60% !important;
         }
 
-        body .container .card {
+        .lesbutton a {
+
+            font-size: 100% !important;
+        }
+
+        .draw-border {
+            box-shadow: inset 0 0 0 4px #58afd1;
+            color: #58afd1;
+            transition: color 0.25s 0.0833333333s;
             position: relative;
-            min-width: 320px;
-            height: 440px;
-            box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
-            inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-            5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            margin: 30px;
-            transition: 0.5s;
         }
-
-        body .container .card:nth-child(1) .box .content a {
-            background: #2196f3;
-        }
-
-        body .container .card:nth-child(2) .box .content a {
-            background: #e91e63;
-        }
-
-        body .container .card:nth-child(3) .box .content a {
-            background: #23c186;
-        }
-
-        body .container .card .box {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            transition: 0.5s;
-        }
-
-        body .container .card .box:hover {
-            transform: translateY(-50px);
-        }
-
-        body .container .card .box:before {
+        .draw-border::before, .draw-border::after {
+            border: 0 solid transparent;
+            box-sizing: border-box;
             content: "";
+            pointer-events: none;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
+            width: 0;
+            height: 0;
+            bottom: 0;
+            right: 0;
+        }
+        .draw-border::before {
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+        }
+        .draw-border::after {
+            border-top-width: 4px;
+            border-right-width: 4px;
+        }
+        .draw-border:hover {
+            color: #ffe593;
+        }
+        .draw-border:hover::before, .draw-border:hover::after {
+            border-color: black;
+            transition: border-color 0s, width 0.25s, height 0.25s;
+            width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.03);
+        }
+        .draw-border:hover::before {
+            transition-delay: 0s, 0s, 0.25s;
+        }
+        .draw-border:hover::after {
+            transition-delay: 0s, 0.25s, 0s;
         }
 
-        body .container .card .box .content {
-            padding: 20px;
-            text-align: center;
+        .btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1.5;
+            font: 700 1.2rem "Roboto Slab", sans-serif;
+            padding: 1em 2em;
+            letter-spacing: 0.05rem;
+        }
+        .btn:focus {
+            outline: 2px dotted #55d7dc;
         }
 
-        body .container .card .box .content h2 {
+
+
+
+
+
+        /* ---------------- /**/
+
+
+
+
+        table {
+
+            margin-left: -60% !important;
+        }
+
+        table td {
+            font-size: 50% !important;
+
+
+        }
+
+        table th {
+            font-size: 40% !important;
+
+
+        }
+
+        a {
+
+            font-size: 60% !important;
+
+
+        }
+
+
+        .pyramid{
+            $size: 100vw;
+            position:absolute;
+            right: 50vw;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            transform: translateX(0);
+            border-style: solid;
+            border-width: 0 $size $size*1.2 $size;
+            border-color: transparent transparent #E8A653 transparent;
+        }
+
+        .sand{
+            position:absolute;
+            bottom:0;
+            width:101%;
+            margin-left: -1% !important;
+            height: 9vw;
+            min-height: 8rem;
+            background:#FFBD4D;
+        }
+
+        .ternary-system{
+            position:absolute;
+            bottom:0;
+        // right:17vw;
+            left: 82vw;
+            transform: translateX(-100%);
+        }
+
+        .sun{
+            position:relative;
+            border-radius:50%;
+            background:#FFDE72;
+        }
+
+        .sun.primary{
             position: absolute;
-            top: -10px;
-            right: 30px;
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.1);
+            top:15vw;
+            left:5vw;
+            width: 1rem;
+            height: 1rem;
         }
 
-        body .container .card .box .content h3 {
-            font-size: 1.8rem;
-            color: #fff;
-            z-index: 1;
-            transition: 0.5s;
-            margin-bottom: 15px;
+        .sun.secondary{
+            position: absolute;
+            top:5vw;
+            left: 11vw;
+            width: 16vw;
+            max-width:6rem;
+            height: 16vw;
+            max-height:6rem;
         }
 
-        body .container .card .box .content p {
-            font-size: 1rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 255);
-            z-index: 1;
-            transition: 0.5s;
+        .sun.ternary{
+            right:0;
+            transform: translateX(10.8rem);
+            width:80vw;
+            max-width: 800px;
+            height:80vw;
+            max-height: 800px;
         }
+
+        .pendulums{
+            position:absolute;
+            width:50px;
+            height:200px;
+            right:35vw;
+            top:-120px;
+            perspective:400px;
+        }
+
+        .pendulum{
+            position:absolute;
+            width:50px;
+            height:200px;
+            right:44%;
+            top:0;
+            left:50%;
+            transform: translateZ(-300px) translateX(-50%);
+        }
+
+        .pendulum.shadow{
+            top:263%;
+            left:-65%;
+            bottom:0;
+            transform-origin: 50% 0;
+            transform:translateX(-50%) scaleY(-1) scaleZ(2) rotateY(-30deg) rotateX(-75deg) translateZ(300px);
+        }
+
+        .pendulum .bar{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            bottom:0;
+            display:block;
+            width: 20px;
+            height:200px;
+            background:#333;
+        }
+
+        .pendulum .string{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            width:2px;
+            height:150px;
+            background:#333;
+        }
+
+        .pendulum .weight{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            bottom:10px;
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            background:#333;
+        }
+
+        .pendulum .motion{
+            position:absolute;
+            height:200px;
+            width:50px;
+            transform-origin:50% 10px;
+            animation: swing 1600ms infinite ease-in-out;
+        }
+
+        .pendulum.shadow .bar, .pendulum.shadow .string, .pendulum.shadow .weight{
+            background:#3d3a34;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
+
+        .text{
+            position:absolute;
+            width: auto;
+            right: 18vw;
+            bottom: calc(63vh);
+            transform: translateY(50%);
+            font-size:2.6rem;
+        }
+
+        .title{
+            text-align:center;
+            font-size: 1em;
+            font-family:'Oswald';
+            font-weight:300;
+            text-transform:uppercase;
+            line-height:1.3em;
+            margin:0;
+            color:#222;
+        }
+
+        .title strong{
+            display:block;
+            margin-top: -20%;
+            font-weight:500;
+            font-size:1.2em;
+            line-height:1.2em;
+        }
+
+        .title em{
+            font-style:normal;
+            font-weight:400;
+            font-size:1.899em;
+            line-height:1em;
+            letter-spacing:.29em;
+            margin-left:0.25em;
+        }
+
+        p{
+            position: absolute;
+            left: 50%;
+            transform: translateX(3.2em);
+            font-family:'Oswald';
+            font-size: 0.6em;
+            color:#222;
+            margin:0 17px;
+            padding:0;
+            text-align:right;
+        }
+
+        @keyframes swing{
+            0%{
+                transform:rotate(-45deg);
+            }
+            50%{
+
+                transform:rotate(45deg);
+            }
+            100%{
+
+                transform:rotate(-45deg);
+            }
+        }
+
+        @media only screen and (orientation: portrait) {
+            .text{
+                right: 50%;
+                top: 10%;
+                transform: translateX(50%);
+                font-size: 7vw;
+            }
+            .title{
+                font-size: 1em;
+            }
+        }
+
+
+
 
     </style>
 
