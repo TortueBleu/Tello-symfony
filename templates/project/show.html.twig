@@ -5,34 +5,43 @@
 {% block body %}
     <h1>Project</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ project.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ project.name }}</td>
-            </tr>
-            <tr>
-                <th>Timestamp</th>
-                <td>{{ project.timestamp ? project.timestamp|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
+    {% for list in project.getAreas() %}
+        <table>
+            <thead>
+                <th>
+                     {{ list.name }}
+                </th>
+            </thead>
+            <tbody>
+                {% for card in list.getCards() %}
+                    <tr>
+                        <td>
+                            {{ card.name }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
 
-        {% for list in project.getAreas() %}
-            <p>{{ list.name }}</p>
-            {% for card in list.getCards() %}
-               <a href="{{ path('card_edit', {'id': card.id}) }}">{{ card.name }}</a>
-            {% endfor %}
-        {% endfor %}
-    </table>
+
 
     <a href="{{ path('project_index') }}">back to list</a>
 
     <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>   </br>
     <a href="/trello"> Home </a>
 
-    {{ include('project/_delete_form.html.twig') }}
+    <style>
+
+        td{
+            border: 1px solid;
+        }
+        table{
+            border: 1px solid;
+        }
+
+    </style>
+
+
+{{ include('project/_delete_form.html.twig') }}
 {% endblock %}
