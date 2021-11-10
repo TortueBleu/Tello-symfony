@@ -20,6 +20,13 @@
                 <td>{{ project.timestamp ? project.timestamp|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
+
+        {% for list in project.getAreas() %}
+            <p>{{ list.name }}</p>
+            {% for card in list.getCards() %}
+               <a href="{{ path('card_edit', {'id': card.id}) }}">{{ card.name }}</a>
+            {% endfor %}
+        {% endfor %}
     </table>
 
     <a href="{{ path('project_index') }}">back to list</a>

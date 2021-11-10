@@ -26,7 +26,7 @@ class UserType extends AbstractType
 
                 // used to render a select box, check boxes or radios
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
             ]);
     }
 
