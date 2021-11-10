@@ -3,7 +3,12 @@
 {% block title %}Project{% endblock %}
 
 {% block body %}
+
+
     <h1>Project</h1>
+
+    <div class="cardTello">
+
 
     {% for list in project.getAreas() %}
         <table>
@@ -24,7 +29,7 @@
         </table>
     {% endfor %}
 
-
+    </div>
 
     <a href="{{ path('project_index') }}">back to list</a>
 
@@ -32,6 +37,12 @@
     <a href="/trello"> Home </a>
 
     <style>
+
+
+        .cardTello{
+
+            display: flex;
+        }
 
         td{
             border: 1px solid;
