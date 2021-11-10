@@ -28,7 +28,8 @@
 
     <a href="{{ path('card_index') }}">back to list</a>
 
-    <a href="{{ path('card_edit', {'id': card.id}) }}">edit</a>
+    <a href="{{ path('card_edit', {'id': card.id}) }}">edit   </br>
+        <a href="/trello"> Home </a>
 
     {{ include('card/_delete_form.html.twig') }}
 {% endblock %}

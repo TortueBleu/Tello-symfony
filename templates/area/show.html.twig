@@ -24,7 +24,8 @@
 
     <a href="{{ path('area_index') }}">back to list</a>
 
-    <a href="{{ path('area_edit', {'id': area.id}) }}">edit</a>
+    <a href="{{ path('area_edit', {'id': area.id}) }}">edit</a>   </br>
+    <a href="/trello"> Home </a>
 
     {{ include('area/_delete_form.html.twig') }}
 {% endblock %}
