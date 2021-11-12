@@ -9,11 +9,14 @@
 
     {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('user_index') }}">back to list</a> </br>
-    <a href="/trello"> Home </a>
+   <button> <a href="{{ path('user_index') }}">back to list</a></button> </br>
+    <button>  <a href="/trello"> Home </a></button>
 
     {{ include('user/_delete_form.html.twig') }}
 
+
+
+    
 
     <style>
 
@@ -38,6 +41,18 @@
     label{
        font-size: 20px !important;
     }
+
+
+    select{
+
+        width: 10% !important;
+        padding: 0.5% !important;
+        margin: 0.5% !important;
+    }
+
+
+
+
 
     </style>
 
