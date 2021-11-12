@@ -5,7 +5,7 @@
 {% block body %}
 
 
-    <h1>Project</h1>
+    <h1>{{ project.name }}</h1>
 
     <div class="cardTello">
 
@@ -14,26 +14,37 @@
         <table>
             <thead>
                 <th>
-                     {{ list.name }}
+                    <a href="{{ path('area_edit', {'id':list.id}) }}"><span>{{ list.name }}</span></a>
                 </th>
             </thead>
             <tbody>
                 {% for card in list.getCards() %}
                     <tr>
                         <td>
-                            {{ card.name }}
+                            <a href="{{ path('card_edit', {'id':card.id}) }}">{{ card.name }}</a>
                         </td>
                     </tr>
                 {% endfor %}
+                <tr>
+                    <td>
+                        <a href="{{ path('card_new') }}">+</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     {% endfor %}
-
+    <table>
+        <thead>
+            <th>
+                <a href="{{ path('area_new') }}">Create new list...</a>
+            </th>
+        </thead>
+    </table>
     </div>
 
     <a href="{{ path('project_index') }}">back to list</a>
 
-    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>   </br>
+    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a></br>
     <a href="/trello"> Home </a>
 
     <style>
@@ -42,6 +53,8 @@
         .cardTello{
 
             display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
         }
 
         td{
@@ -49,8 +62,18 @@
         }
         table{
             border: 1px solid;
+            text-align: center;
         }
-
+        table{
+            padding: 2%;
+        }
+        td, th{
+            padding: 10px;
+        }
+        tr{
+            display: block;
+            margin-top: 1rem;
+        }
     </style>
 
 
